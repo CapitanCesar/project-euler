@@ -1,7 +1,5 @@
 package com.example.demo.business;
 
-import java.util.ArrayList;
-
 import com.example.demo.records.Euler;
 
 public class Euler05 {
@@ -37,7 +35,7 @@ public class Euler05 {
 				break;
 			}
 		}
-		
+
 		int smallestMultiple = bigNumber;
 		boolean isEvenlyDivisible;
 		for (int i = 2; i <= bigNumber; i++) {
@@ -56,8 +54,8 @@ public class Euler05 {
 
 		// Print the interval and the smallest multiple that is evenly divided by all
 		String solution = String.valueOf(smallestMultiple);
-		System.out.printf("The smallest evenly divisible number between [1, %d] is: %d\n-----\n",
-				limit, smallestMultiple);
+//		System.out.printf("The smallest evenly divisible number between [1, %d] is: %d\n-----\n",
+//				limit, smallestMultiple);
 		return solution;
 	}
 }
