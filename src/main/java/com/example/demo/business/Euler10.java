@@ -43,7 +43,7 @@ public class Euler10 {
 
 		// Print the sum of multiples and the list itself
 		String solution = String.valueOf(totalSum);
-		System.out.printf("Sum of primes:\t%d\n-----\n", totalSum);
+//		System.out.printf("Sum of primes:\t%d\n-----\n", totalSum);
 //		PrimeGenerator.printList(smallPrimes);
 
 		return solution;
