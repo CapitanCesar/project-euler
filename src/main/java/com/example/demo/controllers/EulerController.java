@@ -4,18 +4,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.business.Euler0;
-import com.example.demo.business.Euler01;
-import com.example.demo.business.Euler02;
-import com.example.demo.business.Euler03;
-import com.example.demo.business.Euler04;
-import com.example.demo.business.Euler05;
-import com.example.demo.business.Euler06;
-import com.example.demo.business.Euler07;
-import com.example.demo.business.Euler08;
-import com.example.demo.business.Euler09;
-import com.example.demo.business.Euler10;
-import com.example.demo.business.Euler11;
+import com.example.demo.business.*;
 import com.example.demo.records.Euler;
 
 @RestController
@@ -90,6 +79,12 @@ public class EulerController {
 	@GetMapping("/euler/11")
 	public Euler get_euler_11(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
 		Euler euler = Euler11.main(isTest);
+		return euler;
+	}
+
+	@GetMapping("/euler/12")
+	public Euler get_euler_12(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
+		Euler euler = Euler12.main(isTest);
 		return euler;
 	}
 }
