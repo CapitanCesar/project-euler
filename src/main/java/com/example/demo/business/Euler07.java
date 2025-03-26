@@ -47,7 +47,7 @@ public class Euler07 {
 
 		// Print the sum of multiples and the list itself
 		String solution = String.valueOf(chosenPrime);
-		System.out.printf("The %dth prime is: %d\n-----\n", index, chosenPrime);
+//		System.out.printf("The %dth prime is: %d\n-----\n", index, chosenPrime);
 
 		return solution;
 	}
