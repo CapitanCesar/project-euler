@@ -13,6 +13,8 @@ import com.example.demo.business.Euler05;
 import com.example.demo.business.Euler06;
 import com.example.demo.business.Euler07;
 import com.example.demo.business.Euler08;
+import com.example.demo.business.Euler09;
+import com.example.demo.business.Euler10;
 import com.example.demo.records.Euler;
 
 @RestController
@@ -69,6 +71,18 @@ public class EulerController {
 	@GetMapping("/euler/8")
 	public Euler get_euler_8(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
 		Euler euler = Euler08.main(isTest);
+		return euler;
+	}
+
+	@GetMapping("/euler/9")
+	public Euler get_euler_9(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
+		Euler euler = Euler09.main(isTest);
+		return euler;
+	}
+
+	@GetMapping("/euler/10")
+	public Euler get_euler_10(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
+		Euler euler = Euler10.main(isTest);
 		return euler;
 	}
 }

@@ -16,10 +16,10 @@ public class PrimeController {
 	public Map<String, Object> get_primes(
 			@RequestParam(value = "limit", defaultValue = "100") long limit
 		) {
-		int integerLimit = (int) Math.ceil(Math.sqrt(limit));
-		if (integerLimit > Integer.MAX_VALUE) {
+		int integerLimit;
+		if (limit > Integer.MAX_VALUE) {
 			integerLimit = Integer.MAX_VALUE - 1;
-		}
+		} else integerLimit = (int) limit;
 		PrimeGenerator.main(integerLimit);
 		return Collections.singletonMap("message", "Done!");
 	}
