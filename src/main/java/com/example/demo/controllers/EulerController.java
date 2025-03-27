@@ -93,4 +93,10 @@ public class EulerController {
 		Euler euler = Euler13.main(isTest);
 		return euler;
 	}
+
+	@GetMapping("/euler/14")
+	public Euler get_euler_14(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
+		Euler euler = Euler14.main(isTest);
+		return euler;
+	}
 }

@@ -151,7 +151,7 @@ public class Euler13 {
 		String firstTenDigits = totalSumAsString.substring(0, 10);
 
 		String solution = firstTenDigits;
-		System.out.printf("The total sum is:\n%s (10 digits),\n%s (all digits)\n-----\n", firstTenDigits, totalSum);
+//		System.out.printf("The total sum is:\n%s (10 digits),\n%s (all digits)\n-----\n", firstTenDigits, totalSum);
 
 		return solution;
 	}
@@ -187,10 +187,10 @@ public class Euler13 {
 			digitsOfSum[j + 1] = (short) (sumOfDigits % 10);
 
 			carryOver = (short) ((sumOfDigits - digitsOfSum[j + 1]) / 10);
-			System.out.println(digitsOfSum[j + 1] + "; " + carryOver);
+//			System.out.println(digitsOfSum[j + 1] + "; " + carryOver);
 		}
 		digitsOfSum[0] = carryOver;
-		System.out.println(String.valueOf(carryOver));
+//		System.out.println(String.valueOf(carryOver));
 
 		String firstTenDigits = "", totalSum = "", digitAsString;
 
@@ -202,7 +202,7 @@ public class Euler13 {
 		firstTenDigits = totalSum.substring(0, 10);
 
 		String solution = firstTenDigits;
-		System.out.printf("The total sum is:\n%s (10 digits),\n%s (all digits)\n-----\n", firstTenDigits, totalSum);
+//		System.out.printf("The total sum is:\n%s (10 digits),\n%s (all digits)\n-----\n", firstTenDigits, totalSum);
 
 		return solution;
 	}
