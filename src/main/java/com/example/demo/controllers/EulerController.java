@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,93 +11,29 @@ import com.example.demo.records.Euler;
 @RestController
 public class EulerController {
 
-	@GetMapping("/euler/0")
-	public Euler get_euler_0(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler0.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/1")
-	public Euler get_euler_1(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler01.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/2")
-	public Euler get_euler_2(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler02.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/3")
-	public Euler get_euler_3(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler03.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/4")
-	public Euler get_euler_4(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler04.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/5")
-	public Euler get_euler_5(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler05.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/6")
-	public Euler get_euler_6(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler06.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/7")
-	public Euler get_euler_7(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler07.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/8")
-	public Euler get_euler_8(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler08.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/9")
-	public Euler get_euler_9(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler09.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/10")
-	public Euler get_euler_10(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler10.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/11")
-	public Euler get_euler_11(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler11.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/12")
-	public Euler get_euler_12(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler12.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/13")
-	public Euler get_euler_13(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler13.main(isTest);
-		return euler;
-	}
-
-	@GetMapping("/euler/14")
-	public Euler get_euler_14(@RequestParam(value = "isTest", defaultValue = "false") boolean isTest) {
-		Euler euler = Euler14.main(isTest);
-		return euler;
+	@GetMapping("/euler/{id}")
+	public Euler getEuler(
+		@PathVariable(value = "id") int id,
+		@RequestParam(value = "isTest", defaultValue = "false") boolean isTest
+	) {
+		switch (id) {
+			case 0: return Euler0.main(isTest);
+			case 1: return Euler01.main(isTest);
+			case 2: return Euler02.main(isTest);
+			case 3: return Euler03.main(isTest);
+			case 4: return Euler04.main(isTest);
+			case 5: return Euler05.main(isTest);
+			case 6: return Euler06.main(isTest);
+			case 7: return Euler07.main(isTest);
+			case 8: return Euler08.main(isTest);
+			case 9: return Euler09.main(isTest);
+			case 10: return Euler10.main(isTest);
+			case 11: return Euler11.main(isTest);
+			case 12: return Euler12.main(isTest);
+			case 13: return Euler13.main(isTest);
+			case 14: return Euler14.main(isTest);
+			case 15: return Euler15.main(isTest);
+			default: return new Euler("Invalid Euler ID", "");
+		}
 	}
 }

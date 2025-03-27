@@ -39,8 +39,8 @@ public class Euler14 {
 		// Gather the prime list from file
 		int startingNumber = 1, currentCollatz = 0, biggestCollatz = 1;
 //		ArrayList<Integer> collatzSequence = new ArrayList<>();
-        HashMap<BigInteger, Integer> collatzMapping = new HashMap<>();
-        collatzMapping.put(BigInteger.ONE, 1);
+		HashMap<BigInteger, Integer> collatzMapping = new HashMap<>();
+		collatzMapping.put(BigInteger.ONE, 1);
 
 		for (int i = 1; i < limit; i++) {
 			currentCollatz = getCollatzSequenceSize(BigInteger.valueOf(i), collatzMapping);
@@ -54,15 +54,17 @@ public class Euler14 {
 //		System.out.println(collatzMapping.toString());
 //		collatzSequence = iterateCollatzSequence(startingNumber);
 
-		// Print the starting number that produces the biggest Collatz sequence and the list itself
+		// Print the starting number that produces the biggest Collatz sequence and the
+		// list itself
 		String solution = String.valueOf(startingNumber);
-//		System.out.printf("Starting number:\t%d\n-----\nCollatz sequence of length (%d)\n", 
+//		System.out.printf("Starting number:\t%d\n-----\nCollatz sequence of length (%d)\n",
 //				startingNumber, biggestCollatz);
 //		PrimeGenerator.printList(collatzSequence);
 
 		return solution;
 	}
 
+	@SuppressWarnings("unused")
 	private static int getCollatzSequenceSize(int currentNumber, HashMap<Integer, Integer> collatzMapping) {
 		int size = 0;
 		while (!collatzMapping.containsKey(currentNumber)) {
@@ -77,7 +79,7 @@ public class Euler14 {
 	}
 
 	private static int getCollatzSequenceSize(BigInteger currentNumber, HashMap<BigInteger, Integer> collatzMapping) {
-		BigInteger[] division = new BigInteger[2];  // quotient, remainder
+		BigInteger[] division = new BigInteger[2]; // quotient, remainder
 		BigInteger three = BigInteger.ONE.add(BigInteger.TWO);
 		int size = 0;
 		while (!collatzMapping.containsKey(currentNumber)) {
@@ -92,6 +94,7 @@ public class Euler14 {
 		return size + collatzMapping.get(currentNumber);
 	}
 
+	@SuppressWarnings("unused")
 	private static ArrayList<Integer> iterateCollatzSequence(int currentNumber) {
 		ArrayList<Integer> collatzSequence = new ArrayList<>();
 		while (currentNumber != 1) {
