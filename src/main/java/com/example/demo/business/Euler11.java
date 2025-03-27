@@ -168,11 +168,12 @@ public class Euler11 {
 
 	/**
 	 * Generic method to print a 2D array of any type
+	 * @param <T>
 	 *
-	 * @param array
+	 * @param digits
 	 */
-	public static <T> void print2DArray(T[][] array) {
-		for (T[] element : array) {
+	public static <T> void print2DArray(T[][] digits) {
+		for (T[] element : digits) {
 			for (int j = 0; j < element.length; j++) {
 				System.out.print(element[j] + "\t");
 			}
