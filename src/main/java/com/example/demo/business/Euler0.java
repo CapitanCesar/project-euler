@@ -2,6 +2,7 @@ package com.example.demo.business;
 
 import java.util.ArrayList;
 
+import com.example.demo.classes.PrimeGenerator;
 import com.example.demo.records.Euler;
 
 public class Euler0 {

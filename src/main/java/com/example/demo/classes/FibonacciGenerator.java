@@ -1,4 +1,4 @@
-package com.example.demo.business;
+package com.example.demo.classes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +20,7 @@ public class FibonacciGenerator {
     };
 
     public static void main() {
-    	// Choose the maximum number to check for fibonacci tests
+    	// Choose the maximum number to check for Fibonacci tests
         int limit = (int) 4e6; // Example limit
     	main(limit);
 	}
@@ -160,7 +160,7 @@ public class FibonacciGenerator {
 	}
 
 	/**
-	 * Function to print all fibonacci numbers smaller than or equal to n
+	 * Function to print all Fibonacci numbers smaller than or equal to n
 	 * @param maxNumber
 	 * @return
 	 */

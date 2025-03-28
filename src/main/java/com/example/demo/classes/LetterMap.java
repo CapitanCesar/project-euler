@@ -1,4 +1,4 @@
-package com.example.demo.business;
+package com.example.demo.classes;
 
 import java.util.HashMap;
 
@@ -13,7 +13,7 @@ public class LetterMap extends HashMap<Integer, Integer> {
 	private boolean print;
 
 	public LetterMap() {
-		new LetterMap(true);
+		this(true);
 	}
 
 	public LetterMap(boolean print) {

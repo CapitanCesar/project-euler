@@ -40,7 +40,7 @@ public class Euler15 {
 
 		// Print the amount of combinations
 		String solution = String.valueOf(numberOfCombinations);
-		System.out.printf("#Permutations:\t%d\n-----\n", numberOfCombinations);
+//		System.out.printf("#Permutations:\t%d\n-----\n", numberOfCombinations);
 
 		return solution;
 	}

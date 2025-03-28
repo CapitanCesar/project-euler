@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.business.PrimeGenerator;
+import com.example.demo.classes.PrimeGenerator;
 
 @RestController
 public class PrimeController {
