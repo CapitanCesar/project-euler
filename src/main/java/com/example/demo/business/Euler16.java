@@ -1,7 +1,5 @@
 package com.example.demo.business;
 
-import java.math.BigInteger;
-
 import com.example.demo.records.Euler;
 
 public class Euler16 {
@@ -10,13 +8,15 @@ public class Euler16 {
 	}
 
 	public static Euler main(boolean isTest) {
-		String problem = "<p>$2^{15} = 32768$ and the sum of its digits is $3 + 2 + 7 + 6 + 8 = 26$.</p>\r\n"
-				+ "<p>What is the sum of the digits of the number $2^{1000}$?</p>";
+		String problem = "<p>If the numbers $1$ to $5$ are written out in words: one, two, three, four, five, then there are $3 + 3 + 5 + 4 + 4 = 19$ letters used in total.</p>\r\n"
+				+ "<p>If all the numbers from $1$ to $1000$ (one thousand) inclusive were written out in words, how many letters would be used? </p>\r\n"
+				+ "<br><p class=\"note\"><b>NOTE:</b> Do not count spaces or hyphens. For example, $342$ (three hundred and forty-two) contains $23$ letters and $115$ "
+				+ "(one hundred and fifteen) contains $20$ letters. The use of \"and\" when writing out numbers is in compliance with British usage.</p>";
 //		System.out.println(problem);
 		String solution;
 
 		if (isTest) {
-			solution = solveProblem(15);
+			solution = solveProblem(5);
 		} else {
 			solution = solveProblem(1000);
 		}
@@ -27,22 +27,65 @@ public class Euler16 {
 	/**
 	 * @param primes
 	 */
-	private static String solveProblem(int n) {
+	private static String solveProblem(int limit) {
 		// Compute the Power Digit Sum
-		BigInteger powerOfTwo = BigInteger.TWO.pow(n);
+		LetterMap letterCountMap = new LetterMap(true);
 
-		char[] digits = powerOfTwo.toString().toCharArray();
+		int letterCount = 0, nDigits, onesDigit, twoDigits, tensDigit, hundredsDigit;
+		for (int i = 1; i <= limit; i++) {
+			nDigits = String.valueOf(i).length();
+			if (i == 100) {
+				// Special case. One hundred by itself
+				letterCount += (letterCountMap.get(1) + letterCountMap.get(100));
+			} else if (i == 1000) {
+				// Special case. One thousand by itself
+				letterCount += (letterCountMap.get(1) + letterCountMap.get(1000));
+			} else if (letterCountMap.containsKey(i)) {
+				// Special case. Numbers with proper name, such as eleven
+				letterCount += letterCountMap.get(i);
+			} else if (nDigits == 2) {
+				// Numbers with two digits apart from special cases
+				onesDigit = i % 10;
+				tensDigit = i - onesDigit;
+				// Sum both digit letters, such as twenty_one
+				letterCount += (letterCountMap.get(tensDigit) + letterCountMap.get(onesDigit));
+			} else if (nDigits == 3) {
+				/*
+				 * Sum the hundreds digits. The following letters are added to the count:
+				 * letterCountMap.get(hundredsDigit) HUNDRED AND
+				 */
+				hundredsDigit = (i - (i % 100)) / 100;
+				letterCount += (letterCountMap.get(hundredsDigit) + letterCountMap.get(100) + letterCountMap.get(-1, false));
 
-		short digit;
-		int totalSum = 0;
-		for (char dChar : digits) {
-			digit = Short.valueOf(dChar + "");
-			totalSum += digit;
+				// Numbers with three digits apart from special cases
+				onesDigit = i % 10;
+				hundredsDigit = i - (i % 100);
+				twoDigits = i - hundredsDigit;
+
+				if (twoDigits == 0) {
+					// Special cases, such as 200, 300, ...
+					letterCount -= letterCountMap.get(-1, false);
+				} else if (letterCountMap.containsKey(twoDigits)) {
+					letterCountMap.get(-1, true);
+					// If the last two digits have their proper name
+					letterCount += letterCountMap.get(twoDigits);
+				} else {
+					letterCountMap.get(-1, true);
+					// Numbers with two digits apart from special cases
+					tensDigit = twoDigits - onesDigit;
+					// Sum both digit letters, such as twenty_one
+					letterCount += (letterCountMap.get(tensDigit) + letterCountMap.get(onesDigit));
+				}
+			} else {
+				System.out.println(
+						"The number of digits has exceeded 3. So the sum will be returned as if you inputted 1000\n"
+								+ "The Number Letter Counts of 1-1000 is:");
+			}
+			System.out.println();
 		}
-
-		// Print the amount of combinations
-		String solution = String.valueOf(totalSum);
-		System.out.printf("The Power Digit Sum of 2^%d is :\t%d\n-----\n", n, totalSum);
+		// Print the number letter counts
+		String solution = String.valueOf(letterCount);
+		System.out.printf("The Number Letter Counts is:\t%d\n-----\n", letterCount);
 
 		return solution;
 	}
