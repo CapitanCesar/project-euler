@@ -6,16 +6,16 @@ import java.util.PriorityQueue;
 
 import com.example.demo.classes.SimpleTree.TreeNode;
 
-public class Astar {
+public class BreathFirst {
 	// A* Node with total cost (f), cumulative cost to the node (g) & heuristic (h)
-	class AstarNode implements Comparable<AstarNode> {
+	class BreathFirstNode implements Comparable<BreathFirstNode> {
 		private final TreeNode node;
 		public int f; // estimated total cost f = g + h
 		public int g; // cumulative cost from the node start
 		public int h; // estimated heuristic to target
-		public AstarNode parent; // Parent node to reconstruct the path
+		public BreathFirstNode parent; // Parent node to reconstruct the path
 
-		public AstarNode(TreeNode node, int g, int h, AstarNode parent) {
+		public BreathFirstNode(TreeNode node, int g, int h, BreathFirstNode parent) {
 			this.node = node;
 			this.g = g;
 			this.h = h;
@@ -24,7 +24,7 @@ public class Astar {
 		}
 
 		@Override
-		public int compareTo(AstarNode other) {
+		public int compareTo(BreathFirstNode other) {
 //            return Integer.compare(this.f, other.f);
 			if (this.f > other.f) {
 				return -1;
@@ -38,7 +38,7 @@ public class Astar {
 	private TreeNode start;
 	private String goal;
 
-	public Astar(TreeNode start, String goal) {
+	public BreathFirst(TreeNode start, String goal) {
 		this.start = start;
 		this.goal = goal;
 	}
@@ -57,8 +57,8 @@ public class Astar {
 
 	public ArrayList<Integer> solve() {
 		// Initialize the data structures
-		PriorityQueue<AstarNode> open = new PriorityQueue<>(); // Open list
-		HashMap<TreeNode, AstarNode> allNodes = new HashMap<>(); // Map to reference nodes
+		PriorityQueue<BreathFirstNode> open = new PriorityQueue<>(); // Open list
+		HashMap<TreeNode, BreathFirstNode> allNodes = new HashMap<>(); // Map to reference nodes
 		ArrayList<Integer> path = new ArrayList<>(); // Solution path from start to goal
 
 		if (this.goal != "longestPath") {
@@ -67,14 +67,14 @@ public class Astar {
 		}
 
 		// Start node
-		AstarNode startNode = new AstarNode(start, start.data, h(start), null);
+		BreathFirstNode startNode = new BreathFirstNode(start, start.data, h(start), null);
 		open.add(startNode);
 		allNodes.put(start, startNode);
 
 		// Closed nodes (already explored)
-		PriorityQueue<AstarNode> closed = new PriorityQueue<>();
+		PriorityQueue<BreathFirstNode> closed = new PriorityQueue<>();
 
-		AstarNode current;
+		BreathFirstNode current;
 		while (!open.isEmpty()) {
 			// Extract the node with higher cost f
 			current = open.poll();
@@ -84,18 +84,18 @@ public class Astar {
 
 			// Explore the children
 			for (TreeNode child : new TreeNode[] { current.node.leftChild, current.node.rightChild }) {
-				if ((child == null) || closed.stream().anyMatch(node -> node.node.equals(child))) {
+				if (child == null) {
 					continue;
 				}
 
 				// Compute the cost g, h y f
 				int g = current.g + f(current.node, child);
 				int h = h(child);
-				AstarNode childNode = new AstarNode(child, g, h, current);
+				BreathFirstNode childNode = new BreathFirstNode(child, g, h, current);
 
 				// If the child node is already in open list, verify if a better path is found
-				AstarNode existingNode = allNodes.get(child);
-				if (existingNode == null || g < existingNode.g) {
+				BreathFirstNode existingNode = allNodes.get(child);
+				if (existingNode == null || g > existingNode.g) {
 					open.add(childNode);
 					allNodes.put(child, childNode);
 				}

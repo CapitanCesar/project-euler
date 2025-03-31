@@ -2,8 +2,7 @@ package com.example.demo.business;
 
 import java.util.ArrayList;
 
-import com.example.demo.classes.Astar;
-import com.example.demo.classes.PrimeGenerator;
+import com.example.demo.classes.BreathFirst;
 import com.example.demo.classes.SimpleTree;
 import com.example.demo.records.Euler;
 
@@ -58,7 +57,7 @@ public class Euler18 {
 	private static String solveProblem(String bigPyramid) {
 		// Process the big 16384 routes in the pyramid
 
-		ArrayList<Short> digits = new ArrayList<>();
+		ArrayList<Short> numbers = new ArrayList<>();
 		String cleanedPyramid = bigPyramid.replaceAll("<.+>", "");
 
 		int i = 0;
@@ -66,22 +65,22 @@ public class Euler18 {
 		while (i < cleanedPyramid.length()) {
 			character = cleanedPyramid.charAt(i);
 			if (character != '\r' && character != '\n' && character != ' ') {
-				digits.add(Short.valueOf(cleanedPyramid.substring(i, i + 2)));
+				numbers.add(Short.valueOf(cleanedPyramid.substring(i, i + 2)));
 				i++;
 			}
 			i++;
 		}
 
 		SimpleTree searchTree = null;
-		for (Short digit : digits) {
+		for (Short number : numbers) {
 			if (searchTree == null) {
-				searchTree = new SimpleTree(digit);
+				searchTree = new SimpleTree(number);
 			} else {
-				searchTree.insert(digit);
+				searchTree.insert(number);
 			}
 		}
 
-		Astar solver = new Astar(searchTree.getRoot(), "longestPath");
+		BreathFirst solver = new BreathFirst(searchTree.getRoot(), "longestPath");
 		ArrayList<Integer> solutionPath = solver.solve();
 
 		int totalSum = 0;
@@ -91,8 +90,8 @@ public class Euler18 {
 
 		// Print the longest path of the pyramid and the total sum
 		String solution = String.valueOf(totalSum);
-		System.out.printf("The longest path is:\t%d\n-----\n", totalSum);
-		PrimeGenerator.printList(solutionPath);
+//		System.out.printf("The longest path is:\t%d\n-----\n", totalSum);
+//		PrimeGenerator.printList(solutionPath);
 
 		return solution;
 	}
