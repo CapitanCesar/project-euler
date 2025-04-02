@@ -69,6 +69,19 @@ public class Euler31 {
 			}
 		}
 
+//		int[] coins = { 1, 2, 5, 10, 20, 50, 100, 200 };
+//		int[] ways = new int[limit + 1];
+//		ways[0] = 1;
+//		for (int i = 0; i < 8; i++) {
+//			for (int j = coins[i]; j <= limit; j++) {
+//				ways[j] = ways[j] + ways[j - coins[i]];
+//			}
+//		}
+//		HashSet<String> combinations = new HashSet<>();
+//		for (int _a = 0; _a < ways[limit]; _a++) {
+//			combinations.add(String.valueOf(_a));
+//		}
+
 		// Print the #different ways that £2 be made using any number of coins
 		String solution = String.valueOf(combinations.size());
 //		System.out.printf("#different ways:\t%d\n-----\n", combinations.size());
