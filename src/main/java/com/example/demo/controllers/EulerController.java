@@ -44,6 +44,7 @@ public class EulerController {
 			case 24: return Euler24.main(isTest);
 			case 25: return Euler25.main(isTest);
 			case 26: return Euler26.main(isTest);
+			case 27: return Euler27.main(isTest);
 			default: return new Euler("Invalid Euler ID", "");
 		}
 	}
