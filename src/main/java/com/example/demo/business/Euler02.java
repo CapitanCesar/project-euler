@@ -1,5 +1,6 @@
 package com.example.demo.business;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 
 import com.example.demo.classes.FibonacciGenerator;
@@ -31,15 +32,16 @@ public class Euler02 {
 	 */
 	private static String solveProblem(int limit) {
 		// Gather the prime list from file
-		ArrayList<Integer> fibSequence = FibonacciGenerator.readFile();
+		ArrayList<BigInteger> fibSequence = FibonacciGenerator.readFile();
 
-		ArrayList<Integer> evenFibNumbers = new ArrayList<>();
-		int totalSum = 0;
+		ArrayList<BigInteger> evenFibNumbers = new ArrayList<>();
+		BigInteger totalSum = BigInteger.ZERO;
+		BigInteger bigLimit = new BigInteger(String.valueOf(limit));
 
-		for (int fibNumber : fibSequence) {
-			if (fibNumber < limit && fibNumber % 2 == 0) {
+		for (BigInteger fibNumber : fibSequence) {
+			if (fibNumber.compareTo(bigLimit) == -1 && fibNumber.mod(BigInteger.TWO) == BigInteger.ZERO) {
 				evenFibNumbers.add(fibNumber);
-				totalSum += fibNumber;
+				totalSum = totalSum.add(fibNumber);
 			}
 		}
 

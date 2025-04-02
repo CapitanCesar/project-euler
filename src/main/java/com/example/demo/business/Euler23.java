@@ -46,7 +46,7 @@ public class Euler23 {
 					if (i == 1) {
 						// Don't count the currentNumber itself
 						currentDivisors++;
-					} else if (i * i == currentNumber){
+					} else if (i * i == currentNumber) {
 						currentDivisors += i;
 					} else {
 						// Count both divisors: i and n/i
@@ -81,7 +81,7 @@ public class Euler23 {
 		// Print the sum of all the positive integers which cannot be written as the sum
 		// of two abundant numbers
 		String solution = totalSum.toString();
-		System.out.printf("The sum is:\t%s\n-----\n", totalSum.toString());
+//		System.out.printf("The sum is:\t%s\n-----\n", totalSum.toString());
 //		System.out.println(abundantSumSet);
 
 		return solution;

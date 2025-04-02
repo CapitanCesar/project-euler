@@ -14,7 +14,7 @@ public class FibonacciController {
 
 	@GetMapping("/fibonacci")
 	public Map<String, Object> get_fibonacci_numbers(
-			@RequestParam(value = "limit", defaultValue = "4000000") int limit
+			@RequestParam(value = "limit", defaultValue = "100") int limit
 		) {
 		FibonacciGenerator.main(limit);
 		return Collections.singletonMap("message", "Done!");
