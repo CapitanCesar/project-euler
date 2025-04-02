@@ -52,6 +52,7 @@ public class Euler19 {
 		String[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 		String[] months = { "Leap-February", "January", "February", "March", "April", "May", "June", "July", "August",
 				"September", "October", "November", "December" };
+		@SuppressWarnings("unused")
 		String currentDay = "Monday", currentMonth = "January";
 		int i = 0, d = 1, m = 1, y = 1900, firstSundays = 0;
 
