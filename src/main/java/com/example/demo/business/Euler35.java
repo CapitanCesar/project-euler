@@ -56,8 +56,8 @@ public class Euler35 {
 
 	    // Print the number of circular primes below limit and the list itself
 	    String solution = String.valueOf(circularPrimes.size());
-		System.out.printf("Amount of circular primes below %d:\t%s\n-----\n", limit, solution);
-	    System.out.println(circularPrimes);
+//		System.out.printf("Amount of circular primes below %d:\t%s\n-----\n", limit, solution);
+//	    System.out.println(circularPrimes);
 	    return solution;
 	}
 
