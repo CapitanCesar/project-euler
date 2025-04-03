@@ -1,4 +1,4 @@
-package com.example.demo.business;
+package com.example.demo.classes;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -5,20 +5,21 @@ import java.util.ArrayList;
 import com.example.demo.classes.PrimeGenerator;
 import com.example.demo.records.Euler;
 
-public class Euler0 {
+public class Euler10 {
 	public static Euler main() {
 		return main(false);
 	}
 
 	public static Euler main(boolean isTest) {
-		String problem = "<p>.</p>";
+		String problem = "<p>The sum of the primes below $10$ is $2 + 3 + 5 + 7 = 17$.</p>\r\n"
+				+ "<p>Find the sum of all the primes below two million.</p>";
 //		System.out.println(problem);
 		String solution;
 
 		if (isTest) {
 			solution = solveProblem(10);
 		} else {
-			solution = solveProblem(1000);
+			solution = solveProblem((int) 2e6);
 		}
 
 		return new Euler(problem, solution);
@@ -32,7 +33,7 @@ public class Euler0 {
 		ArrayList<Integer> primes = PrimeGenerator.readFile();
 
 		ArrayList<Integer> smallPrimes = new ArrayList<>();
-		int totalSum = 0;
+		long totalSum = 0L;
 
 		for (int prime : primes) {
 			if (prime < limit) {
