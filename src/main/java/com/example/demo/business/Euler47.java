@@ -61,14 +61,14 @@ public class Euler47 {
 			}
 
 			if (areComposite) {
-				ArrayList<ArrayList<Integer>> primeFactors = new ArrayList<>();
-				for (int i = 0; i < limit; i++) {
-					primeFactors.add(new ArrayList<>());
-					primeFactorization(currentNumber + i, primes, primeFactors.get(i));
-					System.out.printf("%d & ", currentNumber + i);
-				}
-				System.out.printf(" are composite numbers\nTheir prime factors are: %s respectively\n\n",
-						primeFactors.toString());
+//				ArrayList<ArrayList<Integer>> primeFactors = new ArrayList<>();
+//				for (int i = 0; i < limit; i++) {
+//					primeFactors.add(new ArrayList<>());
+//					primeFactorization(currentNumber + i, primes, primeFactors.get(i));
+//					System.out.printf("%d & ", currentNumber + i);
+//				}
+//				System.out.printf(" are composite numbers\nTheir prime factors are: %s respectively\n\n",
+//						primeFactors.toString());
 				found = true;
 			} else {
 				currentNumber++;
@@ -82,8 +82,8 @@ public class Euler47 {
 
 		// Print the sum of multiples and the list itself
 		String solution = String.valueOf(currentNumber);
-		System.out.printf("The first %d consecutive integers to have %d distinct prime factors each are\n%s\n-----\n",
-				limit, limit, distinct.toString());
+//		System.out.printf("The first %d consecutive integers to have %d distinct prime factors each are\n%s\n-----\n",
+//				limit, limit, distinct.toString());
 
 		return solution;
 	}
