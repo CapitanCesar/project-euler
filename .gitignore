@@ -1,6 +1,8 @@
 ### Local files ###
 fibonacci.txt
 primes.txt
+bonus_secret_padded.png
+bonus_secret_output.png
 
 HELP.md
 .gradle

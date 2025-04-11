@@ -17,6 +17,7 @@ public class EulerController {
 		@RequestParam(value = "isTest", defaultValue = "false") boolean isTest
 	) {
 		switch (id) {
+			case -1: return EulerSecret.main(isTest);
 			case 0: return Euler0.main(isTest);
 			case 1: return Euler01.main(isTest);
 			case 2: return Euler02.main(isTest);
@@ -71,6 +72,7 @@ public class EulerController {
 			case 51: return Euler51.main(isTest);
 			case 52: return Euler52.main(isTest);
 			case 53: return Euler53.main(isTest);
+			case 54: return Euler54.main(isTest);
 			default: return new Euler("Invalid Euler ID", "");
 		}
 	}
