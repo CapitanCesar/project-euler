@@ -36,7 +36,7 @@ public class Euler22 {
 	 */
 	private static String solveProblem(int limit) {
 		// Gather the name list from file
-		ArrayList<String> names = readFile();
+		ArrayList<String> names = readFile("names.txt");
 
 		// Sort them in alphabetical order
 		names.sort(null);
@@ -76,11 +76,11 @@ public class Euler22 {
 		}
 	}
 
-	public static ArrayList<String> readFile() {
+	public static ArrayList<String> readFile(String filename) {
 		ArrayList<String> names = new ArrayList<>();
 
 		try {
-			File myObj = new File("names.txt");
+			File myObj = new File(filename);
 			Scanner myReader = new Scanner(myObj);
 			while (myReader.hasNextLine()) {
 				String data = myReader.nextLine();
