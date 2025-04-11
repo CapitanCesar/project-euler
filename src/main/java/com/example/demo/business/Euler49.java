@@ -72,7 +72,7 @@ public class Euler49 {
 		return primesSet.contains(number);
 	}
 
-	private static boolean isPermutation(int first, int second) {
+	public static boolean isPermutation(int first, int second) {
 		String firstString = String.valueOf(first), secondString = String.valueOf(second), firstHalf, secondHalf;
 		int splittingIndex;
 		for (char digit : firstString.toCharArray()) {
